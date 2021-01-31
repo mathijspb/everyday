@@ -1,28 +1,53 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <!-- <Datepicker v-model="startDate" /> -->
+        <!-- <Datepicker v-model="endDate" /> -->
+        <Days
+            v-bind:start-date="startDate"
+            v-bind:end-date="endDate"
+        />
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Datepicker from 'vuejs-datepicker';
+import Days from '@/components/Days';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: 'App',
+
+    components: {
+        // Datepicker,
+        Days,
+    },
+
+    computed: {
+        startDate: {
+            get() {
+                return this.$store.state.startDate;
+            },
+            set(value) {
+                this.$store.commit('updateStartDate', value);
+            },
+        },
+        endDate: {
+            get() {
+                return this.$store.state.endDate;
+            },
+            set(value) {
+                this.$store.commit('updateEndDate', value);
+            },
+        },
+    },
+};
 </script>
 
 <style lang="scss">
+body {
+    margin: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    background: black;
 }
 </style>
