@@ -1,11 +1,14 @@
 <template>
-    <button v-bind:class="{ 'active': isActive }" @click="toggle"></button>
+    <button v-bind:class="{ 'active': isActive, 'is-today': isToday }" @click="toggle">
+        <slot />
+    </button>
 </template>
 
 <script>
 export default {
     props: [
         'index',
+        'isToday',
     ],
 
     computed: {
@@ -38,6 +41,8 @@ button {
     outline: 0;
     cursor: pointer;
 
+    color: rgba(255, 255, 255, 0.3);
+
     transition: background 0.2s ease-out;
 
     &:hover {
@@ -46,6 +51,11 @@ button {
 
     &.active {
         background: rgba(255, 255, 255, 0.5);
+        color: transparent;
+    }
+
+    &.is-today {
+        color: rgba(255, 255, 255, 0.8);
     }
 }
 </style>

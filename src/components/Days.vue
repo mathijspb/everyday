@@ -1,6 +1,6 @@
 <template>
     <div class="days">
-        <Day v-for="(day, index) in days" v-bind:key="index" v-bind:index="index"></Day>
+        <Day v-for="(day, index) in days" v-bind:key="index" v-bind:index="index" v-bind:isToday="day.isToday">{{ day.day }}</Day>
     </div>
 </template>
 
@@ -21,12 +21,15 @@ export default {
     computed: {
         days() {
             const days = [];
-            console.log(this.$store.state.startDate);
             const start = moment(this.$store.state.startDate);
             const end = moment(this.$store.state.endDate);
             const count = end.diff(start, 'days');
             for (let i = 0; i < count; i++) {
-                days.push(i);
+                const day = moment(this.$store.state.startDate).add(i + 1, 'days');
+                days.push({
+                    day: `${day.date()}`,
+                    isToday: moment().add(1, 'months').isSame(day, 'day'),
+                });
             }
             return days;
         },
@@ -36,7 +39,6 @@ export default {
     },
 
     mounted() {
-        // console.log(this.startDate);
     },
 };
 </script>
