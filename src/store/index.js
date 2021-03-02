@@ -7,7 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
-        startDate: new Date(2021, 1, 21),
+        startDate: new Date(2021, 0, 30),
         endDate: new Date(2021, 12, 31),
         days: [],
     },

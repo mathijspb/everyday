@@ -54,7 +54,7 @@ button {
         color: transparent;
     }
 
-    &.is-today {
+    &.is-today:not(.active) {
         color: rgba(255, 255, 255, 0.8);
     }
 }

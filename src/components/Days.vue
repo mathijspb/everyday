@@ -28,7 +28,7 @@ export default {
                 const day = moment(this.$store.state.startDate).add(i + 1, 'days');
                 days.push({
                     day: `${day.date()}`,
-                    isToday: moment().add(1, 'months').isSame(day, 'day'),
+                    isToday: moment().isSame(day, 'day'),
                 });
             }
             return days;
