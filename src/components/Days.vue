@@ -47,11 +47,10 @@ export default {
 .days {
     display: grid;
 
-    grid-template-columns: repeat(23, 2fr);
-    // grid-template-rows: repeat(10, 2fr);
+    grid-template-columns: repeat(7, 2fr);
 
-    column-gap: 1px;
-    row-gap: 1px;
+    column-gap: 2px;
+    row-gap: 2px;
 
     height: 100vh;
 }

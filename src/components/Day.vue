@@ -50,11 +50,12 @@ button {
     }
 
     &.active {
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(185, 255, 163, 0.5);
         color: transparent;
     }
 
     &.is-today:not(.active) {
+        background: rgba(255, 255, 255, 0.14);
         color: rgba(255, 255, 255, 0.8);
     }
 }
