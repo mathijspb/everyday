@@ -8,7 +8,7 @@ export default new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
         startDate: new Date(2024, 10, 3),
-        endDate: new Date(2024, 11, 4),
+        endDate: new Date(2024, 11, 13),
         days: [],
     },
     mutations: {
